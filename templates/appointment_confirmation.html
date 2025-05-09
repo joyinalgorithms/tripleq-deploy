@@ -1,0 +1,16 @@
+{% extends "layout.html" %}
+{% block title %} Appointment Confirmation {% endblock %}
+{% block stylesheet %}
+    <link rel="stylesheet" href="/static/styles/appointment.css">
+{% endblock %}
+
+{% block main %}
+    <img class="background-home" src="/static/images/bg9.jpg" alt="">
+    <div class="confirmation-container">
+
+        <h2>Thank You!</h2>
+        <p>Your appointment request has been received.</p>
+        <p>Our team will contact you via phone or email to confirm your appointment.</p>
+        <a href="{{ url_for('index') }}" class="home-button">Go to Home</a>
+    </div>
+{% endblock %}

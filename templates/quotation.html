@@ -1,0 +1,51 @@
+{% extends "layout.html" %}
+{% block title %}Service Quotation{% endblock %}
+
+{% block stylesheet %}
+    <link rel="stylesheet" href="/static/styles/quotation.css">
+{% endblock %}
+
+{% block main %}
+    <div class="quotation-wrapper">
+        <img class="background-home" src="/static/images/bg8.jpg" alt="Background">
+        <h2 class="text-center">Service Quotation</h2>
+
+        <div class="quotation-form">
+            <form method="POST">
+                <div class="input-group">
+                    <label for="project_type">Project Type</label>
+                    <select name="project_type" id="project_type" required>
+                        <option value="Residential">Residential</option>
+                        <option value="Commercial">Commercial</option>
+                        <option value="Swimming Pool">Swimming Pool</option>
+                    </select>
+                </div>
+
+                <div class="input-group">
+                    <label for="area_size">Area Size (in sq.m)</label>
+                    <input type="text" id="area_size" name="area_size" required>
+                </div>
+
+                <div class="input-group">
+                    <label>Select Services</label>
+                    <div class="checkbox-group">
+                        <div class="checkboxone">
+                            <label><input type="checkbox" name="services" value="Interior Design"> Interior Design</label>
+                        </div>
+                        <div class="checkboxone">
+                            <label><input type="checkbox" name="services" value="Landscaping"> Landscaping</label>
+                        </div>
+                    </div>
+                </div>
+
+                <button type="submit" class="btn-submit">Get Estimate</button>
+            </form>
+        </div>
+
+        {% if estimate is not none %}
+            <div class="estimate-box">
+                <h3>Your estimated cost is: <span class="amount">₱{{ estimate }}</span></h3>
+            </div>
+        {% endif %}
+    </div>
+{% endblock %}

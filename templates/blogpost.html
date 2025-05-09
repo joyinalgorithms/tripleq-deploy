@@ -1,0 +1,22 @@
+{% extends "layout.html" %}
+{% block title %} Blog Post {% endblock %}
+
+
+{% block stylesheet %}
+    <link rel="stylesheet" href="/static/styles/blogpost.css">
+{% endblock %}
+
+{% block main %}
+    <img class="background-home" src="/static/images/bg6.jpg" alt="">
+    <div class="blog-container">
+        <h2>Latest Blog Posts</h2>
+        {% for article in articles %}
+            <div class="blog-card">
+                <h3>{{ article.title }}</h3>
+                <p class="summary">{{ article.summary }}</p>
+                <p class="meta">By {{ article.author }} | {{ article.created_at }}</p>
+                <a href="/blogpost/{{ article.post_id }}" class="read-more">Read More</a>
+            </div>
+        {% endfor %}
+    </div>
+{% endblock %}

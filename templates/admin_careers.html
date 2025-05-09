@@ -1,0 +1,39 @@
+{% extends "adminlayout.html" %}
+{% block title %}Manage Careers{% endblock %}
+
+{% block content %}
+    <div class="container mt-4">
+        <h1 class="mb-4">Manage Job Openings</h1>
+
+        <div class="card mb-4">
+            <div class="card-header bg-primary text-white">Add New Job Position</div>
+            <div class="card-body">
+                <form action="/admin/careers/add" method="POST">
+                    <div class="mb-3">
+                        <label for="position" class="form-label">Job Position</label>
+                        <input type="text" id="position" name="position" class="form-control" placeholder="Enter job position" required>
+                    </div>
+                    <div class="mb-3">
+                        <label for="requirements" class="form-label">Job Requirements</label>
+                        <textarea id="requirements" name="requirements" class="form-control" rows="4" placeholder="Enter job requirements" required></textarea>
+                    </div>
+                    <button type="submit" class="btn btn-success">Add Job</button>
+                </form>
+            </div>
+        </div>
+
+        <h2 class="mb-3">Current Job Openings</h2>
+        <div class="list-group">
+            {% for job in careers %}
+                <div class="list-group-item">
+                    <h5 class="mb-1">{{ job.position | safe }}</h5>
+                    <p class="mb-1">{{ job.requirements | safe }}</p>
+                    <div>
+                        <a href="{{ url_for('edit_career', id=job.id) }}" class="btn btn-warning btn-sm">Edit</a>
+                        <a href="{{ url_for('delete_career', id=job.id) }}" class="btn btn-danger btn-sm" onclick="return confirm('Are you sure?')">Delete</a>
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+{% endblock %}

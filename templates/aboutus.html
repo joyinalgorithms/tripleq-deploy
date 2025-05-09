@@ -1,0 +1,46 @@
+{% extends "layout.html" %}
+{% block title %} About Us {% endblock %}
+
+{% block stylesheet %}
+    <link rel="stylesheet" href="/static/styles/aboutus.css">
+{% endblock %}
+
+{% block main %}
+    <img class="background-home" src="/static/images/bg1.jpg" alt="">
+    <div class="aboutus-container">
+        <div class="body-text">
+            <h1>TRIPLE Q</h1>
+            <h3>Construction And Services</h3>
+            <h5>EST. 2023</h5>
+            <p>{{ about.content | safe }}</p>
+        </div>
+
+        <div class="body-text">
+            <p>{{ about.introduction | safe }}</p>
+        </div>
+
+
+        <div class="body-text">
+            <p>{{ about.services | safe }}</p>
+        </div>
+
+
+        <div class="body-text">
+            <p>{{ about.expertise | safe }}</p>
+        </div>
+
+        <div class="body-text">
+            <p>{{ about.commitment | safe }}</p>
+        </div>
+
+
+        <div class="body-text">
+            <p>{{ about.team | safe }}</p>
+        </div>
+
+
+        <div class="body-text">
+            <p>{{ about.vision | safe }}</p>
+        </div>
+    </div>
+{% endblock %}

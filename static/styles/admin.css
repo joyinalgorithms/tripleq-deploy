@@ -1,0 +1,11 @@
+.admin-container {
+    display: flex;
+}
+
+nav {
+    width: 400px;
+}
+
+main {
+    flex: 1;
+}

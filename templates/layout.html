@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>{% block title %} {% endblock %}</title>
+        <link rel="stylesheet" href="/static/styles/general.css">
+        {% block stylesheet %}
+
+        {% endblock %}
+        <link href="https://cdn.jsdelivr.net/npm/remixicon@2.5.0/fonts/remixicon.css" rel="stylesheet">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Arima:wght@100..700&family=Faculty+Glyphic&family=Lustria&family=Oswald:wght@200..700&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Rubik:ital,wght@0,300..900;1,300..900&display=swap" rel="stylesheet">
+    </head>
+
+    <body>
+        <div class="header">
+            <div class="company-logo">
+                <img class="logo" src="/static/images/logo.png" alt="">
+                <div class="company-name-container">
+                    <h2>Triple Q</h2>
+                    <h5>Construction and Services</h5>
+                </div>
+                <div class="header-links">
+                    <h4><a class="icon-link" href="/">Home</a></h4>
+                    <h4><a class="icon-link" href="/aboutus">About us</a></h4>
+                    <h4><a class="icon-link" href="/services">Services</a></h4>
+                    <h4><a class="icon-link" href="/contactus">Contact us</a></h4>
+                    <h4><a class="icon-link" href="/reviews">Reviews</a></h4>
+                    <h4><a class="icon-link" href="/careers">Careers</a></h4>
+                    <h4><a class="icon-link" href="/blogpost">Blog Post</a></h4>
+                    <h4><a class="icon-link" href="/appointment">Make an Appointment</a></h4>
+                    <h4><a class="icon-link" href="/quotation">Service Quote Generator</a></h4>
+                </div>
+            </div>
+        </div>
+        <div class="body-container">
+
+            {% block main %}
+
+            {% endblock %}
+        </div>
+
+        <footer>
+            © Copyright 2025 Triple Q Construction Services Corporation | All Rights Reserved | Built by: db Tech Solutions
+            <div class="footer-link">
+                <a class="icon-link" href="/privacypolicy">Privacy Policy</a>
+                <a class="icon-link" href="/termsandconditions">Terms and Conditions</a>
+                <a class="icon-link" href="/cookiepolicy">Cookie Policy</a>
+            </div>
+        </footer>
+
+        <script src="/static/scripts/home.js"></script>
+
+        {% block scripts %}
+       <!--Start of Tawk.to Script-->
+<script type="text/javascript">
+    var Tawk_API=Tawk_API||{}, Tawk_LoadStart=new Date();
+    (function(){
+    var s1=document.createElement("script"),s0=document.getElementsByTagName("script")[0];
+    s1.async=true;
+    s1.src='https://embed.tawk.to/68174183f8600f191308970f/1iqddfqnd';
+    s1.charset='UTF-8';
+    s1.setAttribute('crossorigin','*');
+    s0.parentNode.insertBefore(s1,s0);
+    })();
+    </script>
+    <!--End of Tawk.to Script-->
+        {% endblock %}
+    </body>
+
+</html>

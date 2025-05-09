@@ -1,0 +1,17 @@
+{% extends "layout.html" %}
+{% block title %} Terms and Conditions {% endblock %}
+
+{% block stylesheet %}
+    <link rel="stylesheet" href="/static/styles/terms.css">
+{% endblock %}
+
+{% block main %}
+    <div class="termsprivacy-container">
+        <div class="company-container">
+            <img class="termsprivacy-image" src="/static/images/company.jpg" alt="">
+        </div>
+        <div class="termsprivacy-content">
+            {{ content | safe }}
+        </div>
+    </div>
+{% endblock %}

@@ -1,0 +1,98 @@
+.appointment-container {
+    position: absolute;
+    width: 600px;
+    height: 500px;
+    background-color: whitesmoke;
+    top: 40px;
+    left: 450px;
+    padding: 40px;
+    display: flex;
+    flex-direction: column;
+    opacity: 0.9;
+
+}
+
+.input-row {
+    display: flex;
+    align-items: center;
+    gap: 30px;
+}
+
+.input-row {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.input-row p {
+    width: 120px;
+    margin: 0;
+}
+
+.less-gap {
+    gap: 10px;
+}
+
+.input-box {
+    padding: 10px;
+    border: 1px solid rgba(0, 0, 0, 0.263);
+    border-radius: 30px;
+    width: 300px;
+    height: 30px;
+    flex: 1;
+    padding: 5px;
+}
+
+.input-box:focus {
+    outline: none;
+    box-shadow: none;
+}
+
+.appointment-input-container {
+    display: flex;
+    margin-top: 20px;
+}
+
+.appointment-textarea {
+    margin-top: 30px;
+    height: 100px;
+    margin-bottom: 10px;
+}
+
+.appointment-container h2 {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.appointment-container button {
+    margin-left: 40%;
+}
+
+footer {
+    margin-bottom: -175px;
+}
+
+.confirmation-container {
+    text-align: center;
+    margin-top: 50px;
+    margin: auto;
+    background-color: #90a6c4;
+    padding: 20px;
+    text-align: center;
+    width: 600px;
+    border-radius: 30px;
+}
+
+.home-button {
+    display: inline-block;
+    margin-top: 20px;
+    padding: 10px 20px;
+    background-color: #007BFF;
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+}
+
+.home-button:hover {
+    background-color: #0056b3;
+}

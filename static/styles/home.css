@@ -1,0 +1,89 @@
+.background-home {
+    width: 100vw;
+    height: 100vh;
+    object-fit: cover;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: -1;
+    transition: opacity 1s ease-in-out;
+}
+
+@keyframes backgroundSlideshow {
+    0% {
+        background-image: url('/static/images/bg1.jpg');
+    }
+
+    20% {
+        background-image: url('/static/images/bg2.jpg');
+    }
+
+    40% {
+        background-image: url('/static/images/bg3.jpg');
+    }
+
+    60% {
+        background-image: url('/static/images/bg4.jpg');
+    }
+
+    80% {
+        background-image: url('/static/images/bg5.jpg');
+    }
+
+    100% {
+        background-image: url('/static/images/bg1.jpg');
+    }
+}
+
+.slogan,
+.slogan2 {
+    position: absolute;
+    opacity: 0;
+    animation: slideIn 2s forwards;
+}
+
+.slogan {
+    top: 100px;
+    left: -100%;
+    animation-delay: 0.5s;
+}
+
+.slogan2 {
+    top: 150px;
+    left: 100%;
+    animation-delay: 1.5s;
+}
+
+
+@keyframes slideIn {
+    0% {
+        opacity: 0;
+    }
+
+    100% {
+        opacity: 1;
+        left: 80px;
+    }
+}
+
+
+.readmore {
+    background-color: rgba(5, 5, 5, 0.653);
+    color: white;
+    font-size: 30px;
+    padding: 10px;
+    border-radius: 20px;
+    width: 190px;
+    position: absolute;
+    bottom: 20px;
+    right: 40px;
+    transition: transform 0.3s ease-in-out;
+}
+
+.readmore:hover {
+    transform: scale(1.1);
+}
+
+footer {
+    margin-bottom: -90px;
+}

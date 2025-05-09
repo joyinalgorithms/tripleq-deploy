@@ -1,0 +1,53 @@
+{% extends "layout.html" %}
+{% block title %} Reviews {% endblock %}
+
+{% block stylesheet %}
+    <link rel="stylesheet" href="/static/styles/reviews.css">
+{% endblock %}
+
+{% block main %}
+    <div class="reviews-container">
+        <img class="background-home" src="/static/images/bg8.jpg" alt="">
+        <h2 class="text-center">Customer Reviews</h2>
+
+        <div class="review-form">
+            <h4>Leave a Review</h4>
+            <form action="/reviews" method="POST">
+                <div class="input-group">
+                    <label for="name">Your Name</label>
+                    <input type="text" id="name" name="name" required>
+                </div>
+                <div class="input-group">
+                    <label for="rating">Rating (1-5)</label>
+                    <select id="rating" name="rating" required>
+                        <option value="" disabled selected>Select Rating</option>
+                        <option value="1">1 - Poor</option>
+                        <option value="2">2 - Fair</option>
+                        <option value="3">3 - Good</option>
+                        <option value="4">4 - Very Good</option>
+                        <option value="5">5 - Excellent</option>
+                    </select>
+                </div>
+
+                <div class="input-group">
+                    <label for="review">Your Review</label>
+                    <textarea id="review" name="review" rows="4" required></textarea>
+                </div>
+                <button type="submit" class="btn-submit">Submit Review</button>
+            </form>
+        </div>
+
+        <div class="reviews-list">
+            <h4>Recent Reviews</h4>
+            <div id="reviews-container">
+                {% for review in reviews %}
+                    <div class="review-card">
+                        <h5>{{ review.reviewer_name }} - <span class="rating">{{ review.rating }}/5</span></h5>
+                        <p>{{ review.comment }}</p>
+                        <small class="date">{{ review.created_at }}</small>
+                    </div>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+{% endblock %}

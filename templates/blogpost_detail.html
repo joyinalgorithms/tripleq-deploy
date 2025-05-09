@@ -1,0 +1,13 @@
+{% extends "layout.html" %}
+{% block title %} {{ article.title }} {% endblock %}
+{% block stylesheet %}
+    <link rel="stylesheet" href="/static/styles/blogpost.css">
+{% endblock %}
+{% block main %}
+    <div class="blog-detail-container">
+        <h2>{{ article.title }}</h2>
+        <p class="meta">By {{ article.author }} | {{ article.created_at }}</p>
+        <p class="content">{{ article.content }}</p>
+        <a href="/blogpost" class="back-link">← Back to Blog</a>
+    </div>
+{% endblock %}

@@ -1,0 +1,45 @@
+{% extends "layout.html" %}
+{% block title %} Careers {% endblock %}
+
+{% block stylesheet %}
+    <link rel="stylesheet" href="/static/styles/careers.css">
+{% endblock %}
+
+{% block main %}
+    <h1>Join Our Team at Triple Q Construction!</h1>
+
+    <div class="team-images-container">
+        <img class="team-image" src="/static/images/team1.png" alt="">
+        <img class="team-image" src="/static/images/team2.png" alt="">
+        <img class="team-image" src="/static/images/team3.png" alt="">
+        <img class="team-image" src="/static/images/team4.png" alt="">
+    </div>
+
+    <div class="team-text-container">
+        <h2>Why work with us?</h2>
+        <h4>At Triple Q Construction, we are committed to building not just structures but also strong careers. We are looking for passionate and skilled individuals who want to be part of a dynamic and growing construction company. If you have the expertise, dedication, and drive to excel in the industry, we’d love to hear from you!</h4>
+        <p>
+            ✔ Competitive Salary and Benefits <br>
+            ✔ Opportunities for Career Growth<br>
+            ✔ Collaborative and Professional Work Environment<br>
+            ✔ Hands-On Experience with Quality Projects<br>
+        </p>
+    </div>
+
+    <div class="job-openings-container">
+        <h1>Current Job Openings</h1>
+        {% for job in careers %}
+            <h3>{{ job.position }}</h3>
+            <p>{{ job.requirements | safe }}</p>
+        {% endfor %}
+    </div>
+
+    <div class="howtoapply-container">
+        <h2>How to Apply?</h2>
+        <h4><i class="ri-send-plane-fill"></i> Send your resume and portfolio (if applicable) to:</h4>
+        <p><i class="ri-mail-line"></i> diazeldonn95@gmail.com</p>
+        <p><i class="ri-phone-fill"></i> For inquiries, call us at: 0919-257-6942 / 0947-459-6298</p>
+        <p><i class="ri-walk-fill"></i> Walk-in Applications: Visit us at A669 J Diaz Street, San Agustin, 2201, Iba, Zambales, Philippines from Monday to Saturday.</p>
+        <h3>Start your journey with us today and build a strong future in the construction industry!</h3>
+    </div>
+{% endblock %}

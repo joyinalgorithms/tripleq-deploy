@@ -1,0 +1,49 @@
+{% extends "adminlayout.html" %}
+{% block title %}Manage About Us{% endblock %}
+
+{% block content %}
+    <div class="container mt-4">
+        <h1 class="mb-4 text-center">Edit About Us</h1>
+
+        <div class="card shadow-lg">
+            <div class="card-body">
+                <form method="POST">
+                    <div class="mb-3">
+                        <label for="introduction" class="form-label fw-bold">Introduction</label>
+                        <textarea class="form-control" id="introduction" name="introduction" rows="3" required>{{ about.introduction }}</textarea>
+                    </div>
+
+                    <div class="mb-3">
+                        <label for="services" class="form-label fw-bold">Services</label>
+                        <textarea class="form-control" id="services" name="services" rows="3" required>
+                            {{ about.services | replace('<br>', '\n') }}
+                        </textarea>
+
+                    </div>
+
+                    <div class="mb-3">
+                        <label for="expertise" class="form-label fw-bold">Expertise</label>
+                        <textarea class="form-control" id="expertise" name="expertise" rows="3" required>{{ about.expertise }}</textarea>
+                    </div>
+
+                    <div class="mb-3">
+                        <label for="commitment" class="form-label fw-bold">Commitment</label>
+                        <textarea class="form-control" id="commitment" name="commitment" rows="3" required>{{ about.commitment }}</textarea>
+                    </div>
+
+                    <div class="mb-3">
+                        <label for="team" class="form-label fw-bold">Team</label>
+                        <textarea class="form-control" id="team" name="team" rows="3" required>{{ about.team }}</textarea>
+                    </div>
+
+                    <div class="mb-3">
+                        <label for="vision" class="form-label fw-bold">Vision</label>
+                        <textarea class="form-control" id="vision" name="vision" rows="3" required>{{ about.vision }}</textarea>
+                    </div>
+
+                    <button type="submit" class="btn btn-primary w-100 mt-3">Save Changes</button>
+                </form>
+            </div>
+        </div>
+    </div>
+{% endblock %}

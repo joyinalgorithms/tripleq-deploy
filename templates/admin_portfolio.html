@@ -1,0 +1,17 @@
+{% extends "adminlayout.html" %}
+{% block title %}Manage Portfolio{% endblock %}
+{% block content %}
+    <h1>Manage Portfolio</h1>
+    <form method="POST" action="{{ url_for('add_project') }}">
+        <input type="text" name="name" placeholder="Project Name" required>
+        <input type="text" name="image" placeholder="Image URL" required>
+        <button type="submit">Add Project</button>
+    </form>
+    <ul>
+        {% for project in projects %}
+            <li>{{ project.name }}
+                <a href="{{ url_for('delete_project', id=project.id) }}">Delete</a>
+            </li>
+        {% endfor %}
+    </ul>
+{% endblock %}

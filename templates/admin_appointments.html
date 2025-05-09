@@ -1,0 +1,124 @@
+{% extends "adminlayout.html" %}
+{% block title %}Manage Appointments{% endblock %}
+
+{% block content %}
+    <h1 class="mb-4">Manage Appointments</h1>
+
+    <ul class="nav nav-tabs" id="appointmentTabs" role="tablist">
+        <li class="nav-item">
+            <button class="nav-link active" id="pending-tab" data-bs-toggle="tab" data-bs-target="#pending" type="button">
+                Pending
+            </button>
+        </li>
+        <li class="nav-item">
+            <button class="nav-link" id="confirmed-tab" data-bs-toggle="tab" data-bs-target="#confirmed" type="button">
+                Confirmed
+            </button>
+        </li>
+        <li class="nav-item">
+            <button class="nav-link" id="cancelled-tab" data-bs-toggle="tab" data-bs-target="#cancelled" type="button">
+                Cancelled
+            </button>
+        </li>
+    </ul>
+
+    <div class="tab-content mt-3" id="appointmentTabsContent">
+        <div class="tab-pane fade show active" id="pending">
+            <h2>Pending Appointments</h2>
+            <table class="table table-striped">
+                <thead>
+                    <tr>
+                        <th>Name</th>
+                        <th>Phone</th>
+                        <th>Email</th>
+                        <th>Date</th>
+                        <th>Time</th>
+                        <th>Message</th>
+                        <th>Status</th>
+                        <th>Update</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for appointment in pending_appointments %}
+                        <tr>
+                            <td>{{ appointment.full_name }}</td>
+                            <td>{{ appointment.phone }}</td>
+                            <td>{{ appointment.email }}</td>
+                            <td>{{ appointment.preferred_date }}</td>
+                            <td>{{ appointment.preferred_time }}</td>
+                            <td>{{ appointment.message }}</td>
+                            <td>{{ appointment.status }}</td>
+                            <td>
+                                <form method="POST" action="{{ url_for('update_appointment', id=appointment.appointment_id) }}">
+                                    <select name="status" class="form-select">
+                                        <option value="Pending" {% if appointment.status == 'Pending' %}selected{% endif %}>Pending</option>
+                                        <option value="Confirmed" {% if appointment.status == 'Confirmed' %}selected{% endif %}>Confirmed</option>
+                                        <option value="Cancelled" {% if appointment.status == 'Cancelled' %}selected{% endif %}>Cancelled</option>
+                                    </select>
+                                    <button type="submit" class="btn btn-primary btn-sm mt-1">Update</button>
+                                </form>
+                            </td>
+                        </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+
+        <div class="tab-pane fade" id="confirmed">
+            <h2>Confirmed Appointments</h2>
+            <table class="table table-success">
+                <thead>
+                    <tr>
+                        <th>Name</th>
+                        <th>Phone</th>
+                        <th>Email</th>
+                        <th>Date</th>
+                        <th>Time</th>
+                        <th>Message</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for appointment in confirmed_appointments %}
+                        <tr>
+                            <td>{{ appointment.full_name }}</td>
+                            <td>{{ appointment.phone }}</td>
+                            <td>{{ appointment.email }}</td>
+                            <td>{{ appointment.preferred_date }}</td>
+                            <td>{{ appointment.preferred_time }}</td>
+                            <td>{{ appointment.message }}</td>
+                        </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+
+        <div class="tab-pane fade" id="cancelled">
+            <h2>Cancelled Appointments</h2>
+            <table class="table table-danger">
+                <thead>
+                    <tr>
+                        <th>Name</th>
+                        <th>Phone</th>
+                        <th>Email</th>
+                        <th>Date</th>
+                        <th>Time</th>
+                        <th>Message</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for appointment in cancelled_appointments %}
+                        <tr>
+                            <td>{{ appointment.full_name }}</td>
+                            <td>{{ appointment.phone }}</td>
+                            <td>{{ appointment.email }}</td>
+                            <td>{{ appointment.preferred_date }}</td>
+                            <td>{{ appointment.preferred_time }}</td>
+                            <td>{{ appointment.message }}</td>
+                        </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+{% endblock %}

@@ -1,0 +1,41 @@
+{% extends "adminlayout.html" %}
+{% block title %}Manage Reviews{% endblock %}
+
+{% block content %}
+    <div class="container mt-4">
+        <h1 class="mb-4 text-center">Manage Reviews</h1>
+
+        <div class="card shadow-lg">
+            <div class="card-body">
+                <div class="table-responsive">
+                    <table class="table table-striped table-hover">
+                        <thead class="table-dark">
+                            <tr>
+                                <th>Reviewer</th>
+                                <th>Rating</th>
+                                <th>Comment</th>
+                                <th>Date</th>
+                                <th>Action</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {% for review in reviews %}
+                                <tr>
+                                    <td>{{ review.reviewer_name }}</td>
+                                    <td>{{ review.rating }}/5 ⭐</td>
+                                    <td>{{ review.comment }}</td>
+                                    <td>{{ review.created_at }}</td>
+                                    <td>
+                                        <a href="{{ url_for('delete_review', id=review.id) }}" class="btn btn-danger btn-sm" onclick="return confirm('Are you sure you want to delete this review?')">
+                                            <i class="fas fa-trash-alt"></i> Delete
+                                        </a>
+                                    </td>
+                                </tr>
+                            {% endfor %}
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}

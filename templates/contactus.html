@@ -1,0 +1,40 @@
+{% extends "layout.html" %}
+{% block title %} Contact Us {% endblock %}
+
+{% block stylesheet %}
+    <link rel="stylesheet" href="/static/styles/contactus.css">
+{% endblock %}
+
+{% block main %}
+    <img class="background-image" src="/static/images/bg5.jpg" alt="">
+    <div class="contact-container">
+        <h1>Contact Us</h1>
+        <p>Have a question or need expert construction services? Get in touch with Triple Q Construction! Whether you’re looking for professional architectural and engineering solutions or need assistance with building permits, we’re here to help. Reach out to us via phone, email, or visit our office. We look forward to working with you!</p>
+    </div>
+
+    <div class="contactdetails-container">
+        <div class="details-container">
+            <img class="icon-image" src="/static/icons/location.png" alt="">
+            <a href="https://maps.app.goo.gl/hUR6XLGpzPN27ni57" target="_blank">{{ contact.address | safe }}</a>
+        </div>
+        <div class="details-container">
+            <img class="icon-image" src="/static/icons/phone-call.png" alt="">
+            <p>
+                {% for phone in contact.phone.split('<br>') %}
+                    {% set cleaned_phone = phone|replace('-', '') %}
+                    <a href="tel:{{ cleaned_phone }}">{{ phone }}</a><br>
+                {% endfor %}
+            </p>
+        </div>
+
+        <div class="details-container">
+            <img class="icon-image" src="/static/icons/mail.png" alt="">
+            <a href="https://mail.google.com/mail/?view=cm&to={{ contact.email | safe }}" target="_blank">{{ contact.email | safe }}</a>
+
+        </div>
+        <div class="details-container">
+            <img class="icon-image" src="/static/icons/clock.png" alt="">
+            <p>{{ contact.office_hours | safe }}</p>
+        </div>
+    </div>
+{% endblock %}

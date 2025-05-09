@@ -1,0 +1,40 @@
+{% extends "layout.html" %}
+{% block title %} Appointment {% endblock %}
+
+{% block stylesheet %}
+    <link rel="stylesheet" href="/static/styles/appointment.css">
+{% endblock %}
+
+{% block main %}
+    <img class="background-home" src="/static/images/bg7.jpg" alt="">
+    <form action="/appointment" method="POST">
+        <div class="appointment-container">
+            <h2>Make an Appointment</h2>
+
+            <div class="input-row">
+                <p>Name: </p>
+                <input type="text" name="full_name" class="input-box" required>
+            </div>
+            <div class="input-row">
+                <p>Phone Number: </p>
+                <input type="text" name="phone" class="input-box less-gap" required>
+            </div>
+            <div class="input-row">
+                <p>Email: </p>
+                <input type="email" name="email" class="input-box less-gap" required>
+            </div>
+            <div class="input-row">
+                <p>Date: </p>
+                <input type="date" name="preferred_date" class="input-box less-gap" required>
+            </div>
+            <div class="input-row">
+                <p>Time: </p>
+                <input type="time" name="preferred_time" class="input-box less-gap" required>
+            </div>
+            <textarea class="appointment-textarea" name="message" placeholder="Tell us what you need, and we'll make it happen! Please fill out the form below to schedule an appointment with our team. Whether you need assistance with swimming pool creation, building design, renovations, or landscaping, we're here to help. Provide as many details as possible to ensure we can best serve your needs. Our team will get back to you within 24 hours to confirm your booking."></textarea>
+            <div>
+                <button type="submit">Submit</button>
+            </div>
+        </div>
+    </form>
+{% endblock %}

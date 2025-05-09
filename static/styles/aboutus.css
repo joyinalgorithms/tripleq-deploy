@@ -1,0 +1,56 @@
+.aboutus-container {
+    position: relative;
+    z-index: 1;
+    color: white;
+    padding-top: 50px;
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+    padding-bottom: 20px;
+    margin: auto;
+    align-items: center;
+}
+
+.body-text {
+    text-align: center;
+    color: white;
+    z-index: 2;
+    background: rgba(0, 0, 0, 0.4);
+    padding: 20px;
+    border-radius: 10px;
+    width: 700px;
+    opacity: 0;
+    animation: fadeInSlide 3s ease-in-out forwards;
+}
+
+@keyframes slideFromLeft {
+    from {
+        transform: translateX(-100%);
+        opacity: 0;
+    }
+
+    to {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+@keyframes slideFromRight {
+    from {
+        transform: translateX(100%);
+        opacity: 0;
+    }
+
+    to {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+.body-text:nth-child(odd) {
+    animation: slideFromLeft 3s ease-in-out forwards;
+}
+
+.body-text:nth-child(even) {
+    animation: slideFromRight 3s ease-in-out forwards;
+}
