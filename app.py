@@ -207,6 +207,7 @@ def contact_us():
     contact = db.execute("SELECT * FROM contact_info WHERE id = 1")[0]
     return render_template("contactus.html", contact=contact)
 
+
 @app.route("/quotation", methods=["GET", "POST"])
 def quotation():
     estimate = None
@@ -220,19 +221,35 @@ def quotation():
             return redirect(url_for("quotation"))
 
         services = request.form.getlist("services")
+
+        base_rate_row = db.execute("SELECT value FROM quotation_settings WHERE setting_type = 'base_rate' AND name = ?", project_type)
+        base_rate = base_rate_row[0]["value"] if base_rate_row else 0
+
         service_cost = 0
-
-
-        if "Interior Design" in services:
-            service_cost += 500
-        if "Landscaping" in services:
-            service_cost += 300
-
-        base_rate = 1000 if project_type == "Residential" else 1500
+        for service in services:
+            row = db.execute("SELECT value FROM quotation_settings WHERE setting_type = 'service_cost' AND name = ?", service)
+            if row:
+                service_cost += row[0]["value"]
 
         estimate = int(area_size * base_rate + service_cost)
 
     return render_template("quotation.html", estimate=estimate)
+
+
+@app.route("/admin/quotation-settings", methods=["GET", "POST"])
+def admin_quotation_settings():
+    if request.method == "POST":
+        for key, value in request.form.items():
+            try:
+                float_value = float(value)
+                db.execute("UPDATE quotation_settings SET value = ? WHERE id = ?", float_value, key)
+            except ValueError:
+                flash(f"Invalid value for setting ID {key}. Must be a number.", "danger")
+        flash("Quotation settings updated successfully.", "success")
+        return redirect(url_for("admin_quotation_settings"))
+
+    settings = db.execute("SELECT * FROM quotation_settings ORDER BY setting_type, name")
+    return render_template("admin_quotation.html", settings=settings)
 
 
 @app.route("/reviews", methods=["GET", "POST"])

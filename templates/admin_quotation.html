@@ -1,0 +1,29 @@
+{% extends "adminlayout.html" %}
+{% block title %}Quotation Settings{% endblock %}
+
+{% block content %}
+<h2 class="mb-4">Manage Quotation Settings</h2>
+<form method="POST">
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Type</th>
+                <th>Name</th>
+                <th>Value</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for setting in settings %}
+            <tr>
+                <td>{{ setting.setting_type }}</td>
+                <td>{{ setting.name }}</td>
+                <td>
+                    <input type="text" name="{{ setting.id }}" value="{{ setting.value }}" class="form-control">
+                </td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    <button type="submit" class="btn btn-primary">Save Changes</button>
+</form>
+{% endblock %}

@@ -68,7 +68,10 @@ button:active {
     align-items: center;
     padding-top: 5px;
     margin-left: 30px;
+    flex-wrap: nowrap;
+    overflow-x: auto;
 }
+
 
 .company-name-container {
     display: flex;
@@ -85,6 +88,18 @@ button:active {
 
 .header-links h4 {
     margin-left: 20px;
+    white-space: nowrap;
+}
+
+@media (max-width: 1200px) {
+    .header-links {
+        margin-left: 50px;
+        overflow-x: auto;
+    }
+
+    .header-links h4 {
+        font-size: 14px;
+    }
 }
 
 .background-home {
@@ -108,6 +123,7 @@ footer {
     padding-top: 40px;
     margin-top: auto;
     position: relative;
+
 }
 
 .footer-link {
@@ -116,6 +132,7 @@ footer {
     position: absolute;
     bottom: 10px;
     left: 40%;
+    margin-bottom: 20px;
 }
 
 .body-container {
@@ -155,4 +172,23 @@ footer {
     margin: auto;
     margin-top: 80px;
     padding: 20px;
+}
+#backToTop {
+    display: none; /* Hidden by default */
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    z-index: 100;
+    font-size: 24px;
+    background-color: #6F91C2;
+    color: white;
+    padding: 10px 14px;
+    border-radius: 50%;
+    text-align: center;
+    text-decoration: none;
+    transition: opacity 0.3s ease;
+}
+
+#backToTop:hover {
+    opacity: 0.8;
 }

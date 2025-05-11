@@ -3,7 +3,13 @@
     margin: auto;
     padding: 20px;
 }
-
+.blog-container h2 {
+    background-color: white;
+    border-radius: 20px;
+    width: 200px;
+    padding: 10px 20px;
+    margin-bottom: 20px;
+}
 .blog-card {
     border: 1px solid #ddd;
     padding: 15px;
