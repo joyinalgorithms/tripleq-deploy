@@ -89,6 +89,9 @@ button:active {
 .header-links h4 {
     margin-left: 20px;
     white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    font-size: clamp(12px, 1.5vw, 18px);
 }
 
 @media (max-width: 1200px) {
@@ -96,9 +99,8 @@ button:active {
         margin-left: 50px;
         overflow-x: auto;
     }
-
     .header-links h4 {
-        font-size: 14px;
+        font-size: clamp(10px, 1.2vw, 12px);
     }
 }
 
