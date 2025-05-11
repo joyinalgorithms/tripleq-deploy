@@ -4,6 +4,7 @@ from flask_session import Session
 from werkzeug.security import check_password_hash, generate_password_hash
 from functools import wraps
 from flask import render_template_string
+import os
 
 app = Flask(__name__)
 db = SQL("sqlite:///tripleq.db")
