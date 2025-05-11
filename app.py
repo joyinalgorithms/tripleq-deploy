@@ -507,8 +507,6 @@ def logout():
     return redirect(url_for("adminlog"))
 
 
-if __name__ == "__main__":
-    app.run(debug=True)
 
 ALLOWED_EXTENSIONS = {'pdf', 'docx', 'doc'}
 
@@ -520,3 +518,8 @@ def allowed_file(filename):
 @app.errorhandler(500)
 def internal_server_error(error):
     return render_template("500.html"), 500
+
+
+if __name__ == "__main__":
+    port = int(os.environ.get("PORT", 10000))
+    app.run(host="0.0.0.0", port=port)
